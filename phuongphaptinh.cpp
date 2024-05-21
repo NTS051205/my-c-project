@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <math.h>
 
-#define TOLERANCE 0.0001 
-#define MAX_ITERATIONS 1000 
+#define gioihan 0.0001 
+#define max 1000 
+
 
 double giatridathuc(double heso[], int bac, double x) {
     double ketqua = 0;
@@ -34,7 +35,7 @@ void lapdiemcodinh(double heso[], int bac ,double giatrikhoitao) {
     do {
         x1 = g(heso, bac, x0);
         printf("%d\t%.6f\n", solanlap, x1);
-        if (fabs(x1 - x0) < TOLERANCE) {
+        if (fabs(x1 - x0) < gioihan) {
             printf("nghiem gan dung: %.6f\n", x1);
             return;
         }
@@ -42,7 +43,7 @@ void lapdiemcodinh(double heso[], int bac ,double giatrikhoitao) {
         x0 = x1;
         solanlap++;
 
-        if (solanlap >= MAX_ITERATIONS) {
+        if (solanlap >= max) {
             printf("So lan lap toi da da dat. Không tim thay nghiem trong khoang cach sai so cho phep.\n");
             return;
         }
